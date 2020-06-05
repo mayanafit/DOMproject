@@ -1,0 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url(https://motionarray.imgix.net/preview-86153-SHWcOk9ppl-high_0008.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Press Start 2P', cursive;
+}
+
+img {
+    display: block;
+    margin: 30px auto;
+    width: 25%;
+    height: 25%;
+    border-radius: 20px;
+}
+
+span { 
+    background-color: #ADCAD6;  
+    width: 150px;
+    height: 20px;
+    margin: 10px auto;
+    padding: 15px;  
+    display: block;
+    text-align: center;
+    border-radius: 10px;
+}
+
+p {
+    margin: 10px auto;
+    padding: 15px;  
+    display: block;
+    text-align: center;
+}
+
+button {
+    margin: 10px auto;
+    padding: 10px 20px;
+    display: block;
+    background-color: maroon;
+    color: wheat;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.hide {
+    display: none;
+}
+
+button > a {
+    text-decoration: none;
+    color: white;
+}
+
+button:hover {
+    color: black;
+}
+
+button > a:hover {
+    color: black;
+}
+
+
+

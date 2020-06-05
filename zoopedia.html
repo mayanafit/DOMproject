@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="zoopedia.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Permanent+Marker&family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="container">
+        <audio id="audio" class="hide" controls>
+            <source src="cat.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+        <div id="pic">
+            <a id="pics" href="#"><img onclick="enableAutoplay()" id="image" src="https://images.pexels.com/photos/2361952/pexels-photo-2361952.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="hayo apa?"></a>
+        </div>
+        <p>It is a...</p> 
+        <div>
+            <button id="answer?" onclick="enableAutoplayLoop()"><a href="#">Find Answer!</a></button>
+        </div>
+            <span id="answer" class="hide">Cat</span>
+        <br>
+        <div>
+            <button id="next" class="hide"><a href="#">Next!</a></button>
+        </div>
+        <div>
+            <button id="home" class="hide"><a href="index.html">Return Home</a></button>
+        </div>
+    </div> 
+    <script type="text/javascript">
+        let myAudio = document.getElementById('audio')
+        let findButton = document.getElementById('answer?')
+        let answer = document.getElementById('answer')
+        let nextButton = document.getElementById('next')
+        let myImage = document.getElementById('pics')
+        let homeButton = document.getElementById('home')
+        let flag = false
+        let num = 0 
+        let data = [
+        {
+            image: '<img onclick="enableAutoplay()" id="image" src="https://images.pexels.com/photos/2361952/pexels-photo-2361952.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="hayo apa?">',
+            animal: 'Cat',
+            sound: '<source src="cat.mp3" type="audio/mpeg">'
+        },
+        {
+            image: '<img onclick="enableAutoplay()" id="image" src="https://images.pexels.com/photos/936317/pexels-photo-936317.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="hayo apa?">',
+            animal: 'Dog',
+            sound: '<source src="dog.mp3" type="audio/mpeg">'
+        },
+        {
+            image: '<img onclick="enableAutoplay()" id="image" src="https://images.pexels.com/photos/1580010/pexels-photo-1580010.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="hayo apa?">',
+            animal: 'Horse',
+            sound: '<source src="horse.mp3" type="audio/mpeg">'
+        },
+        {
+            image: '<img onclick="enableAutoplay()" id="image" src="https://images.pexels.com/photos/532992/pexels-photo-532992.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="hayo apa?">',
+            animal: 'Bird',
+            sound: '<source src="bird.mp3" type="audio/mpeg">'
+        },
+        {
+            image: '<img onclick="enableAutoplay()" id="image" src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/baby-african-elephant-isolated-on-white-susan-schmitz.jpg" alt="hayo apa?">',
+            animal: 'Elephant',
+            sound: '<source src="elephant.mp3" type="audio/mpeg">'
+        },
+        {
+            image: '<img onclick="enableAutoplay()" id="image" src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/bear-stare-square-bill-wakeley.jpg" alt="hayo apa?">',
+            animal: 'Bear',
+            sound: '<source src="bear.mp3" type="audio/mpeg">'
+        },
+        {
+            image: '<img onclick="enableAutoplay()" id="image" src="https://images.pexels.com/photos/3712296/pexels-photo-3712296.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="hayo apa?">',
+            animal: 'Lion',
+            sound: '<source src="lion.mp3" type="audio/mpeg">'
+        },
+        {
+            image: '<img onclick="enableAutoplay()" id="image" src="https://www.chesterzoo.org/app/uploads/sites/5/2016/06/Chimpanzee-square.jpg" alt="hayo apa?">',
+            animal: 'Chimpanzee',
+            sound: '<source src="chimp.mp3" type="audio/mpeg">'
+        },
+        {
+            image: '<img onclick="enableAutoplay()" id="image" src="https://willowhavenfarmpa.com/wp-content/uploads/2019/03/Chicken-looking-at-me-Square.jpg" alt="hayo apa?">',
+            animal: 'Chicken',
+            sound: '<source src="chicken.mp3" type="audio/mpeg">'
+        },
+        {
+            image: '<img onclick="enableAutoplay()" id="image" src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Hausziege_04.jpg" alt="hayo apa?">',
+            animal: 'Goat',
+            sound: '<source src="goat.mp3" type="audio/mpeg">'
+        }
+        ]
+        function enableAutoplay() { 
+            myAudio.autoplay = true;
+            myAudio.load();
+        }   
+        function enableLoop() { 
+            myAudio.loop = true;
+            myAudio.load();
+        } 
+        function disableLoop() { 
+            myAudio.loop = false;
+            myAudio.load();
+        } 
+        function enableAutoplayLoop () {
+            enableAutoplay()
+            enableLoop()
+        }
+        
+        function myAnswer () {
+            num++
+            answer.innerHTML = data[num].animal
+            myImage.innerHTML = data[num].image
+            myAudio.innerHTML = data[num].sound
+            
+        }
+        findButton.addEventListener('click',displayAnswer)
+        function displayAnswer () {
+            findButton.classList.add('hide')
+            answer.classList.remove('hide')
+            next.classList.remove('hide')
+            homeButton.classList.remove('hide')
+            if (num >= data.length-1) {
+                next.classList.add('hide')
+            }
+        }
+        nextButton.addEventListener('click', displayNext)
+        function displayNext() {
+            homeButton.classList.add('hide')
+            next.classList.add('hide')
+            disableLoop()
+            findButton.classList.remove('hide')
+            answer.classList.add('hide')
+            myAnswer()
+        }   
+    </script>
+</body>
+</html>
